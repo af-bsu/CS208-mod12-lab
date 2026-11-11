@@ -6,3 +6,20 @@ body {
 a {
   color: #00B7FF;
 }
+
+.task {
+  margin: 10px 0;
+}
+
+.taskactions {
+  width: 180px;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+#createform {
+  width: 310px;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+}
