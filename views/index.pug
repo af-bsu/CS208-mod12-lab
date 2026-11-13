@@ -4,25 +4,26 @@ block content
   h1= title
   p Welcome to #{title}
   ol
-  each val in todos
-    li(class='task')
-      span= val.task + ' - '
-      if val.completed > 0
-        span Completed
-      else
-        span Not Completed
-      br
-      div(class='taskactions')
-        form(method='PUT' action='/complete')
-          input(type='hidden', name='id', value=val.id)
-          button(type='submit') Mark done
-        form(method='PUT' action='/edit')
-          input(type='hidden', name='id', value=val.id)
-          button(type='submit', id='editBtn') Edit
-        form(method='POST' action='/delete')
-          input(type='hidden', name='id', value=val.id)
-          button(type='submit') Delete
-      p(id='editMessage')
+    each val in todos
+      li(class='task')
+        span= val.task + ' - '
+        if val.completed > 0
+          span Completed
+        else
+          span Not Completed
+        br
+        div(class='taskactions')
+          form(method='POST' action='/complete')
+            input(type='hidden', name='id', value=val.id)
+            button(type='submit') Mark done
+          form(method='POST' action='/edit' class='editForm')
+            input(type='hidden', name='id', value=val.id)
+            input(type='hidden', name='task', class='editInput')
+            button(type='submit', class='editBtn') Edit
+          form(method='POST' action='/delete')
+            input(type='hidden', name='id', value=val.id)
+            button(type='submit') Delete
+        p(class='editMessage')
 
   hr
   h2 Add a new task
